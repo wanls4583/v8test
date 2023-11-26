@@ -1,0 +1,38 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-I/opt/homebrew/opt/v8/include",
+                "-L/opt/homebrew/opt/v8/lib",
+                "-lv8",
+                "-lv8_libbase",
+                "-lv8_libplatform",
+                "-g",
+                // "${file}", //当前活动的文件
+                "${fileDirname}/*.cpp",
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}",
+                "-fno-rtti",
+                "-std=c++17",
+                "-DV8_COMPRESS_POINTERS",
+                "-DV8_ENABLE_SANDBOX"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}
